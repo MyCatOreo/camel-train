@@ -4,11 +4,12 @@ export const FunNamePrefix = [
   "Fluffy",
   "Hyper",
   "Hunter",
+  "Rainbow",
   "Ranger",
 ];
 export const FunNameSuffix = [
   "Danger",
-  "Camel",
+  "Water Tank",
   "Chicken",
   "Fish",
   "Monkey",

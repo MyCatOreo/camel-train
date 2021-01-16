@@ -1,4 +1,4 @@
-import { Item } from "./item";
+import { Item, UserItem } from "./item";
 import { MapLocation } from "./mapLocation";
 import { User } from "./user";
 
@@ -8,10 +8,5 @@ export interface Trip {
   date: Date;
   members: User[];
   destination: MapLocation[];
-  items: {
-    item: Item;
-    user?: User;
-    count?: number;
-    note: string;
-  };
+  items: UserItem[];
 }
