@@ -1,9 +1,12 @@
 import "react-native-gesture-handler";
 import { StatusBar } from "expo-status-bar";
 import React, { useState } from "react";
+import { Provider } from "react-redux";
+import { createStore } from "redux";
 import * as Font from "expo-font";
 import AppLoading from "expo-app-loading";
 import AppNavigator from "./navigations/AppNavigation";
+import { appReducer } from "./stores";
 
 const fetchFonts = () => {
   return Font.loadAsync({
@@ -17,13 +20,17 @@ const fetchFonts = () => {
 export default function App() {
   const [fontLoaded, setFontLoaded] = useState(false);
 
+  const store = createStore(appReducer);
+
   if (!fontLoaded) {
     return (
-      <AppLoading
-        startAsync={fetchFonts}
-        onFinish={() => setFontLoaded(true)}
-        onError={(error: any) => console.log(error)}
-      />
+      <Provider store={store}>
+        <AppLoading
+          startAsync={fetchFonts}
+          onFinish={() => setFontLoaded(true)}
+          onError={(error: any) => console.log(error)}
+        />
+      </Provider>
     );
   }
 
