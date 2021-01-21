@@ -2,7 +2,8 @@ import "react-native-gesture-handler";
 import { StatusBar } from "expo-status-bar";
 import React, { useState } from "react";
 import { Provider } from "react-redux";
-import { createStore } from "redux";
+import { createStore, applyMiddleware } from "redux";
+import thunk from "redux-thunk";
 import * as Font from "expo-font";
 import AppLoading from "expo-app-loading";
 import AppNavigator from "./navigations/AppNavigation";
@@ -20,19 +21,21 @@ const fetchFonts = () => {
 export default function App() {
   const [fontLoaded, setFontLoaded] = useState(false);
 
-  const store = createStore(appReducer);
+  const store = createStore(appReducer, applyMiddleware(thunk));
 
   if (!fontLoaded) {
     return (
-      <Provider store={store}>
-        <AppLoading
-          startAsync={fetchFonts}
-          onFinish={() => setFontLoaded(true)}
-          onError={(error: any) => console.log(error)}
-        />
-      </Provider>
+      <AppLoading
+        startAsync={fetchFonts}
+        onFinish={() => setFontLoaded(true)}
+        onError={(error: any) => console.log(error)}
+      />
     );
   }
 
-  return <AppNavigator />;
+  return (
+    <Provider store={store}>
+      <AppNavigator />
+    </Provider>
+  );
 }

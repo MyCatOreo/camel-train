@@ -1,0 +1,344 @@
+{"db": 
+  {
+    "items": {
+        "camping": [
+            {
+            "id": "cp1-1",
+            "name": "Tent",
+            "category": "Shelter",
+            "image": "",
+            "description": "We human love staying under a roof at night."
+            },
+            {
+            "id": "cp1-2",
+            "name": "Ground cloth/tarp",
+            "category": "Shelter",
+            "image": "",
+            "description": "Protect your tent."
+            },
+            {
+            "id": "cp1-3",
+            "name": "Extra stakes",
+            "category": "Shelter",
+            "image": "",
+            "description": "Just bring them all."
+            },
+            {
+            "id": "cp1-4",
+            "name": "Shade tarp/poles/rope/stakes",
+            "category": "Shelter",
+            "image": "",
+            "description": "You'll love some shade."
+            },
+            {
+            "id": "cp1-5",
+            "name": "Axe or hammer",
+            "category": "Shelter",
+            "image": "",
+            "description": "For taking selfies."
+            },
+            {
+            "id": "cp1-6",
+            "name": "Mat for tent entrance",
+            "category": "Shelter",
+            "image": "",
+            "description": "Protect your tent."
+            },
+            {
+            "id": "cp1-7",
+            "name": "Dust pan/brush",
+            "category": "Shelter",
+            "image": "",
+            "description": "For housework lovers."
+            },
+            {
+            "id": "cp2-1",
+            "name": "Sleeping bag",
+            "category": "Bedding",
+            "image": "",
+            "description": "Keep it dry to survive. Good luck!"
+            },
+            {
+            "id": "cp2-2",
+            "name": "Sheets/blankets",
+            "category": "Bedding",
+            "image": "",
+            "description": "Add some extra warmth."
+            },
+            {
+            "id": "cp2-3",
+            "name": "Pillow",
+            "category": "Bedding",
+            "image": "",
+            "description": "It works hard while you're asleep."
+            },
+            {
+            "id": "cp2-4",
+            "name": "Air mattress/sleeping pad/cot/tarp",
+            "category": "Bedding",
+            "image": "",
+            "description": "Equivalent to your bed."
+            },
+            {
+            "id": "cp2-5",
+            "name": "Air pump",
+            "category": "Bedding",
+            "image": "",
+            "description": "To avoid using mouth."
+            },
+            {
+            "id": "cp2-6",
+            "name": "Repair kit for air mattress",
+            "category": "Bedding",
+            "image": "",
+            "description": "Or just don't break your air mattress!"
+            },
+            {
+            "id": "cp2-7",
+            "name": "Utility bags for storage",
+            "category": "Bedding",
+            "image": "",
+            "description": "For our precious sleeping bag."
+            }
+        ]
+    },
+    "users": [
+      {
+        "id": "u1",
+        "name": "Fluffy Fish",
+        "avatar": ""
+      },
+      {
+        "id": "u2",
+        "name": "Rainbow Chicken",
+        "avatar": ""
+      },
+      {
+        "id": "u3",
+        "name": "Big Water Tank",
+        "avatar": ""
+      },
+      {
+        "id": "u4",
+        "name": "Hyper Monkey",
+        "avatar": ""
+      }
+    ],
+    "trips": [
+      {
+        "id": "trip1",
+        "name": "Journey to the West",
+        "date": "",
+        "members": [
+          {
+            "id": "u1",
+            "name": "Fluffy Fish",
+            "avatar": ""
+          },
+          {
+            "id": "u2",
+            "name": "Rainbow Chicken",
+            "avatar": ""
+          },
+          {
+            "id": "u3",
+            "name": "Big Water Tank",
+            "avatar": ""
+          },
+          {
+            "id": "u4",
+            "name": "Hyper Monkey",
+            "avatar": ""
+          }
+        ],
+        "destination": [
+          {
+            "name": "Twelve Apostles",
+            "address": "Great Ocean Rd & Booringa Rd, Princetown VIC 3269",
+            "mapLatitude": "-38.665724",
+            "mapLongitude": "143.104630",
+            "image": ""
+          }
+        ],
+        "items": [
+          {
+            "id": "trip1-cp1-1",
+            "name": "Tent",
+            "category": "Shelter",
+            "image": "",
+            "description": "We human love staying under a roof at night.",
+            "user": {
+              "id": "u1",
+              "name": "Fluffy Fish",
+              "avatar": ""
+            },
+            "count": 1,
+            "status": "To Pack"
+          },
+          {
+            "id": "trip1-cp1-2",
+            "name": "Ground cloth/tarp",
+            "category": "Shelter",
+            "image": "",
+            "description": "Protect your tent.",
+            "user": {
+              "id": "u1",
+              "name": "Fluffy Fish",
+              "avatar": ""
+            },
+            "count": 1,
+            "status": "To Pack"
+          },
+          {
+            "id": "trip1-cp1-3",
+            "name": "Extra stakes",
+            "category": "Shelter",
+            "image": "",
+            "description": "Just bring them all.",
+            "user": {
+              "id": "u1",
+              "name": "Fluffy Fish",
+              "avatar": ""
+            },
+            "count": 10,
+            "status": "To Buy"
+          },
+          {
+            "id": "trip1-cp1-4",
+            "name": "Shade tarp/poles/rope/stakes",
+            "category": "Shelter",
+            "image": "",
+
+            "description": "You'll love some shade."
+          },
+          {
+            "id": "trip1-cp1-5",
+            "name": "Axe or hammer",
+            "category": "Shelter",
+            "image": "",
+            "description": "For taking selfies.",
+            "user": {
+              "id": "u1",
+              "name": "Fluffy Fish",
+              "avatar": ""
+            },
+            "count": 1,
+            "status": "To Pack"
+          },
+          {
+            "id": "trip1-cp1-6",
+            "name": "Mat for tent entrance",
+            "category": "Shelter",
+            "image": "",
+            "description": "Protect your tent."
+          },
+          {
+            "id": "trip1-cp1-7",
+            "name": "Dust pan/brush",
+            "category": "Shelter",
+            "image": "",
+            "description": "For housework lovers."
+          },
+          {
+            "id": "trip1-cp2-1-1",
+            "name": "Sleeping bag",
+            "category": "Bedding",
+            "image": "",
+            "description": "Keep it dry to survive. Good luck!",
+            "user": {
+              "id": "u1",
+              "name": "Fluffy Fish",
+              "avatar": ""
+            },
+            "count": 1,
+            "status": "To Pack"
+          },
+          {
+            "id": "trip1-cp2-1-2",
+            "name": "Sleeping bag",
+            "category": "Bedding",
+            "image": "",
+            "description": "Keep it dry to survive. Good luck!",
+            "user":  {
+              "id": "u2",
+              "name": "Rainbow Chicken",
+              "avatar": ""
+            },
+            "count": 1,
+            "status": "To Pack"
+          },
+          {
+            "id": "trip1-cp2-1-3",
+            "name": "Sleeping bag",
+            "category": "Bedding",
+            "image": "",
+            "description": "Keep it dry to survive. Good luck!",
+            "user": {
+              "id": "u3",
+              "name": "Big Water Tank",
+              "avatar": ""
+            },
+            "count": 1,
+            "status": "To Pack"
+          },
+          {
+            "id": "trip1-cp2-1-4",
+            "name": "Sleeping bag",
+            "category": "Bedding",
+            "image": "",
+            "description": "Keep it dry to survive. Good luck!",
+            "user": {
+              "id": "u4",
+              "name": "Hyper Monkey",
+              "avatar": ""
+            },
+            "count": 1,
+            "status": "To Pack"
+          },
+          {
+          "id": "trip1-cp2-2",
+          "name": "Sheets/blankets",
+          "category": "Bedding",
+          "image": "",
+          "description": "Add some extra warmth."
+          },
+          {
+          "id": "trip1-cp2-3",
+          "name": "Pillow",
+          "category": "Bedding",
+          "image": "",
+          "description": "It works hard while you're asleep."
+          },
+          {
+          "id": "trip1-cp2-4",
+          "name": "Air mattress/sleeping pad/cot/tarp",
+          "category": "Bedding",
+          "image": "",
+          "description": "Equivalent to your bed."
+          },
+          {
+          "id": "trip1-cp2-5",
+          "name": "Air pump",
+          "category": "Bedding",
+          "image": "",
+          "description": "To avoid using mouth."
+          },
+          {
+          "id": "trip1-cp2-6",
+          "name": "Repair kit for air mattress",
+          "category": "Bedding",
+          "image": "",
+          "description": "Or just don't break your air mattress!"
+          },
+          {
+          "id": "trip1-cp2-7",
+          "name": "Utility bags for storage",
+          "category": "Bedding",
+          "image": "",
+          "description": "For our precious sleeping bag."
+          }
+        ]
+      }
+    ]
+  }
+}
