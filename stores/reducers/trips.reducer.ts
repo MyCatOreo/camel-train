@@ -10,10 +10,8 @@ export const tripsReducer = (
 ) => {
   switch (action.type) {
     case LOAD_TRIPS:
-      console.log("reducer", action.payload.trips);
       return { ...state, trips: action.payload.trips };
     default:
-      console.log("default");
       return state;
   }
 };

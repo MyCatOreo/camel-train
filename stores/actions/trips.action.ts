@@ -15,8 +15,6 @@ export const loadTrips = (userId: string) => {
 
       const data = await response.json();
 
-      console.log("finish loading", data[0].items[0]);
-
       //we can also define another action, for example LOAD_TRIPS_SUCCESS
       dispatch({
         type: LOAD_TRIPS,
