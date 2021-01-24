@@ -1,7 +1,8 @@
+import { Trip } from "../../models/trip";
 import { LOAD_TRIPS } from "../actions/trips.action";
 
 const TRIPS_INITIAL_STATE = {
-  trips: [],
+  trips: [] as Trip[],
 };
 
 export const tripsReducer = (

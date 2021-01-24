@@ -4,6 +4,7 @@ import { User } from "./user";
 
 export interface Trip {
   id: string;
+  active: boolean;
   name: string;
   date: Date;
   user: User;

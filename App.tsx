@@ -8,6 +8,8 @@ import * as Font from "expo-font";
 import AppLoading from "expo-app-loading";
 import AppNavigator from "./navigations/AppNavigation";
 import { appReducer } from "./stores";
+import { SafeAreaView } from "react-native-safe-area-context";
+import Color from "./constants/colors";
 
 const fetchFonts = () => {
   return Font.loadAsync({
@@ -35,7 +37,9 @@ export default function App() {
 
   return (
     <Provider store={store}>
-      <AppNavigator />
+      <SafeAreaView style={{ flex: 1, backgroundColor: Color.flatLight }}>
+        <AppNavigator />
+      </SafeAreaView>
     </Provider>
   );
 }
