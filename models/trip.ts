@@ -11,4 +11,5 @@ export interface Trip {
   members: User[];
   destination: MapLocation[];
   items: UserItem[];
+  groupedItems?: { category: string; data: UserItem[] }[];
 }

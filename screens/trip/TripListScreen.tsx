@@ -173,13 +173,6 @@ const styles = StyleSheet.create({
     width: Dimensions.get("window").width,
     height: 250,
   },
-  card: {
-    padding: 20,
-    margin: 6,
-    borderRadius: 16,
-    borderWidth: 1,
-    // elevation: 5,
-  },
   tripItemStatus: {
     backgroundColor: COLOR.themeDark,
     padding: 10,
