@@ -7,20 +7,20 @@ export interface Item {
   category: string;
   image: string;
   description: string;
-  // defaultWeight?: number;
   // unit?: string;
   // isSharable: boolean;
+  // isForIndividual: boolean;
   // isFreshFood: boolean;
-  // isContainer: boolean;
+  // isMultiple: boolean;
 }
 
 export interface UserItem extends Item {
   item: Item;
-  user?: User;
+  status?: UserItemStatus[];
+}
+
+export interface UserItemStatus {
+  user: User;
   count?: number;
-  // weight?: number;
-  // note: string;
-  status: "To Buy" | "To Pack" | undefined;
-  //toBuyAt?: MapLocation;
-  //container?: "string";
+  todo: "question" | "todo" | "done";
 }

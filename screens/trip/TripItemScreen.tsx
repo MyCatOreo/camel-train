@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import {
   View,
   StyleSheet,
@@ -6,6 +6,8 @@ import {
   FlatList,
   Image,
   SectionList,
+  Button,
+  Pressable,
 } from "react-native";
 import { MaterialCommunityIcons } from "@expo/vector-icons";
 import FONT from "../../constants/fonts";
@@ -17,22 +19,163 @@ import * as TripActions from "../../stores/actions/trips.action";
 import { User } from "../../models/user";
 import Environment from "./../../environment";
 import { ScrollView, TouchableOpacity } from "react-native-gesture-handler";
-import { UserItem } from "../../models/item";
+import { UserItem, UserItemStatus } from "../../models/item";
 import { items } from "../../assets/data/items";
+import users from "../../assets/data/users";
+import VerticalDivider from "../../components/VerticalDivider";
 
-const ItemItem = (props: { item: UserItem }) => {
+const Avatar = (props: { user: User; todo?: string }) => {
   return (
-    <View>
-      <AppText>{JSON.stringify(props.item)}</AppText>
+    <Image
+      style={[
+        styles.avatar,
+        props.todo === "done"
+          ? styles.avatarDone
+          : props.todo === "todo"
+          ? styles.avatarToDo
+          : styles.avatarQuestion,
+      ]}
+      source={{ uri: props.user.avatar }}
+    />
+  );
+};
+
+const ListItem = (props: { item: UserItem }) => {
+  const [status, setStatus] = useState("todo" as "question" | "todo" | "done");
+  const dispatch = useDispatch();
+  const selectedTrip = "trip1"; //TODO: get from selector
+  const selectedUser = "u1"; //TODO: get from selector
+  const selectStatus: UserItemStatus[] = useSelector(
+    (state: any) =>
+      state.trips.trips
+        .find((trip: Trip) => trip.active === true) //TODO: selected trip
+        .items.find((item: UserItem) => item.item.id === props.item.item.id)
+        .status
+  );
+  //TODO: avatar should get todo from selector
+
+  const onIconPressed = () => {
+    switch (status) {
+      case "todo":
+        setStatus("done");
+        dispatch(
+          TripActions.setItemDone(
+            selectedTrip,
+            props.item.item.id,
+            selectedUser
+          )
+        );
+        break;
+      case "done":
+        setStatus("question");
+        dispatch(
+          TripActions.setItemQuestion(
+            selectedTrip,
+            props.item.item.id,
+            selectedUser
+          )
+        );
+        break;
+      case "question":
+        setStatus("todo");
+        dispatch(
+          TripActions.setItemTodo(
+            selectedTrip,
+            props.item.item.id,
+            selectedUser
+          )
+        );
+        break;
+      default:
+        setStatus("todo");
+        dispatch(
+          TripActions.setItemTodo(
+            selectedTrip,
+            props.item.item.id,
+            selectedUser
+          )
+        );
+    }
+  };
+
+  return (
+    <View style={[styles.listItem]}>
+      <View style={styles.row}>
+        <View style={styles.listItemNameContainer}>
+          <AppText style={styles.listItemName}>{props.item.item.name}</AppText>
+        </View>
+        <View style={styles.statusButton}>
+          <Pressable onPress={() => onIconPressed()}>
+            {(() => {
+              switch (status) {
+                case "todo":
+                  return (
+                    <MaterialCommunityIcons
+                      name="checkbox-blank-outline"
+                      size={36}
+                      color="grey"
+                    />
+                  );
+                case "question":
+                  return (
+                    <MaterialCommunityIcons
+                      name="alert-box-outline"
+                      size={36}
+                      color="orange"
+                    />
+                  );
+                case "done":
+                  return (
+                    <MaterialCommunityIcons
+                      name="check-box-outline"
+                      size={36}
+                      color="darkgreen"
+                    />
+                  );
+              }
+            })()}
+          </Pressable>
+        </View>
+      </View>
+
+      <View style={[styles.row, { height: 44 }]}>
+        {props.item.status ? (
+          props.item.status.map((x: UserItemStatus) => {
+            return (
+              <View key={x.user.id}>
+                <Avatar
+                  user={x.user}
+                  todo={
+                    selectStatus.find((status) => status.user.id === x.user.id)!
+                      .todo
+                  }
+                />
+              </View>
+            );
+          })
+        ) : (
+          <View>
+            <AppText>I'll bring this!</AppText>
+          </View>
+        )}
+      </View>
     </View>
   );
 };
 
-const groupBy = (items: any[], key: any) => {
+const ListHeader = (props: { header: string }) => {
+  return (
+    <View style={styles.listHeader}>
+      <AppText style={styles.headerText}>{props.header}</AppText>
+    </View>
+  );
+};
+
+const groupItemsBy = (items: any[], key: any) => {
   const grouped = items.reduce(
     (result, item) => ({
       ...result,
-      [item[key]]: [...(result[item[key]] || []), item],
+      [item.item[key]]: [...(result[item.item[key]] || []), item],
     }),
     {}
   );
@@ -46,38 +189,49 @@ const TripItemScreen = (props: any) => {
   const trip: Trip = useSelector(
     (state: any) =>
       state.trips.trips
-        .filter((trip: Trip) => trip.active)
+        .filter((trip: Trip) => trip.active) //TODO: use selected trip instead
         .map((activeTrip: Trip) => {
-          console.log({ groupedItems: groupBy(activeTrip.items, "category") });
           return {
             ...activeTrip,
-            groupedItems: groupBy(activeTrip.items, "category"),
+            groupedItems: groupItemsBy(activeTrip.items, "category"),
           };
         })[0]
   );
 
   const teamItemCount = trip.items.length;
-  const teamToPackCount = trip.items.filter(
-    (item: UserItem) => item.status === "To Pack"
+  const teamToDoCount = trip.items.filter(
+    (item) =>
+      item.status && item.status.some((x: UserItemStatus) => x.todo === "todo")
   ).length;
-  const teamToBuyCount = trip.items.filter(
-    (item: UserItem) => item.status === "To Buy"
+  const teamQuestionCount = trip.items.filter(
+    (item) =>
+      item.status &&
+      item.status.some((x: UserItemStatus) => x.todo === "question")
   ).length;
 
   const myItems = trip.items.filter(
-    (item: UserItem) => item.user && item.user.id === "u1"
+    (item) =>
+      item.status && item.status.some((x: UserItemStatus) => x.user.id === "u1")
   ); //TODO: replaced by logged in id
   const selfItemCount = myItems.length;
-  const selfToPackCount = myItems.filter(
-    (item: UserItem) => item.status === "To Pack"
+  const selfToDoCount = myItems.filter(
+    (item) =>
+      item.status &&
+      item.status.some(
+        (x: UserItemStatus) => x.todo === "todo" && x.user.id === "u1"
+      )
   ).length;
-  const selfToBuyCount = myItems.filter(
-    (item: UserItem) => item.status === "To Buy"
+  const selfQuestionCount = myItems.filter(
+    (item) =>
+      item.status &&
+      item.status.some(
+        (x: UserItemStatus) => x.todo === "question" && x.user.id === "u1"
+      )
   ).length;
 
   return (
     <View style={styles.tripListScreen}>
-      <View>
+      <View style={styles.tripHeaderContainer}>
         <View style={styles.tripHeader}>
           <AppText style={styles.tripTitle}>{trip.name}</AppText>
         </View>
@@ -86,7 +240,7 @@ const TripItemScreen = (props: any) => {
           <View style={styles.row}>
             <AppText style={styles.label}>Team </AppText>
             <AppText style={styles.label}>
-              {teamItemCount - teamToPackCount - teamToBuyCount} /{" "}
+              {teamItemCount - teamToDoCount - teamQuestionCount} /
               {teamItemCount}
             </AppText>
           </View>
@@ -94,21 +248,20 @@ const TripItemScreen = (props: any) => {
           <View style={styles.row}>
             <AppText style={styles.label}>My Items </AppText>
             <AppText style={styles.label}>
-              {selfItemCount - selfToPackCount - selfToBuyCount} /{" "}
+              {selfItemCount - selfToDoCount - selfQuestionCount} /
               {selfItemCount}
             </AppText>
           </View>
         </View>
+      </View>
 
-        {/* <AppText>{JSON.stringify(trip.groupedItems)}</AppText> */}
+      <View style={styles.sectionListContainer}>
         <SectionList
           sections={trip.groupedItems || [{ category: "", data: [] }]}
-          keyExtractor={(item, index) => index + item.id}
-          renderItem={({ item }) => (
-            <AppText>{JSON.stringify(item.name)}</AppText>
-          )}
+          keyExtractor={(item, index) => index + item.item.id}
+          renderItem={({ item }) => <ListItem item={item} />}
           renderSectionHeader={({ section: { category } }) => (
-            <AppText>{category}</AppText>
+            <ListHeader header={category} />
           )}
         />
       </View>
@@ -119,7 +272,10 @@ const TripItemScreen = (props: any) => {
 const styles = StyleSheet.create({
   tripListScreen: {
     flex: 1,
-    backgroundColor: COLOR.flatLight,
+    backgroundColor: COLOR.themeDarkTint,
+  },
+  tripHeaderContainer: {
+    elevation: 5,
   },
   tripHeader: {
     backgroundColor: COLOR.themeDark,
@@ -136,7 +292,7 @@ const styles = StyleSheet.create({
     paddingBottom: 20,
   },
   tripItem: {},
-  row: { flexDirection: "row" },
+  row: { flexDirection: "row", alignItems: "center" },
   tripItemStatus: {
     backgroundColor: COLOR.themeDark,
     paddingBottom: 10,
@@ -146,22 +302,56 @@ const styles = StyleSheet.create({
     color: COLOR.flatLight,
     fontSize: 20,
   },
-  floatButtonContainer: {
-    position: "absolute",
-    top: "85%",
-    left: "80%",
-    elevation: 5,
-    height: 60,
-    width: 60,
-    borderRadius: 30,
-    overflow: "hidden",
+  sectionListContainer: {
+    //  flex: 1,
   },
-  floatButton: {
-    height: 60,
-    width: 60,
-    backgroundColor: COLOR.boldLight,
-    alignItems: "center",
-    justifyContent: "center",
+  listHeader: {
+    paddingHorizontal: 25,
+    paddingVertical: 10,
+  },
+  listItemNameContainer: {
+    width: "85%",
+  },
+  statusButton: {},
+  headerText: {
+    fontSize: 20,
+    color: COLOR.flatLight,
+  },
+  listItem: {
+    borderColor: COLOR.flatGrey,
+    marginHorizontal: 25,
+    borderBottomWidth: 1,
+    padding: 10,
+    marginBottom: 5,
+    borderRadius: 10,
+    elevation: 5,
+    backgroundColor: COLOR.flatLight,
+  },
+  listItemName: {
+    color: COLOR.themeDark,
+    fontSize: 18,
+  },
+  listItemDesc: {
+    color: COLOR.themeDarkTint,
+  },
+  avatar: {
+    height: 36,
+    width: 36,
+    backgroundColor: COLOR.themeDarkTint,
+    borderRadius: 18,
+    marginRight: 5,
+  },
+  avatarToDo: {
+    borderWidth: 0,
+    borderColor: "grey",
+  },
+  avatarDone: {
+    borderWidth: 4,
+    borderColor: "green",
+  },
+  avatarQuestion: {
+    borderWidth: 4,
+    borderColor: "orange",
   },
 });
 

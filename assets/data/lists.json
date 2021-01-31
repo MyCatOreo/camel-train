@@ -1,154 +1,155 @@
-{"db": 
-  {
+{
+  "db": {
     "items": {
-        "camping": [
-            {
-            "id": "cp1-1",
-            "name": "Tent",
-            "category": "Shelter",
-            "image": "",
-            "description": "We human love staying under a roof at night."
-            },
-            {
-            "id": "cp1-2",
-            "name": "Ground cloth/tarp",
-            "category": "Shelter",
-            "image": "",
-            "description": "Protect your tent."
-            },
-            {
-            "id": "cp1-3",
-            "name": "Extra stakes",
-            "category": "Shelter",
-            "image": "",
-            "description": "Just bring them all."
-            },
-            {
-            "id": "cp1-4",
-            "name": "Shade tarp/poles/rope/stakes",
-            "category": "Shelter",
-            "image": "",
-            "description": "You'll love some shade."
-            },
-            {
-            "id": "cp1-5",
-            "name": "Axe or hammer",
-            "category": "Shelter",
-            "image": "",
-            "description": "For taking selfies."
-            },
-            {
-            "id": "cp1-6",
-            "name": "Mat for tent entrance",
-            "category": "Shelter",
-            "image": "",
-            "description": "Protect your tent."
-            },
-            {
-            "id": "cp1-7",
-            "name": "Dust pan/brush",
-            "category": "Shelter",
-            "image": "",
-            "description": "For housework lovers."
-            },
-            {
-            "id": "cp2-1",
-            "name": "Sleeping bag",
-            "category": "Bedding",
-            "image": "",
-            "description": "Keep it dry to survive. Good luck!"
-            },
-            {
-            "id": "cp2-2",
-            "name": "Sheets/blankets",
-            "category": "Bedding",
-            "image": "",
-            "description": "Add some extra warmth."
-            },
-            {
-            "id": "cp2-3",
-            "name": "Pillow",
-            "category": "Bedding",
-            "image": "",
-            "description": "It works hard while you're asleep."
-            },
-            {
-            "id": "cp2-4",
-            "name": "Air mattress/sleeping pad/cot/tarp",
-            "category": "Bedding",
-            "image": "",
-            "description": "Equivalent to your bed."
-            },
-            {
-            "id": "cp2-5",
-            "name": "Air pump",
-            "category": "Bedding",
-            "image": "",
-            "description": "To avoid using mouth."
-            },
-            {
-            "id": "cp2-6",
-            "name": "Repair kit for air mattress",
-            "category": "Bedding",
-            "image": "",
-            "description": "Or just don't break your air mattress!"
-            },
-            {
-            "id": "cp2-7",
-            "name": "Utility bags for storage",
-            "category": "Bedding",
-            "image": "",
-            "description": "For our precious sleeping bag."
-            }
-        ]
+      "camping": [
+        {
+          "id": "cp1-1",
+          "name": "Tent",
+          "category": "Shelter",
+          "image": "",
+          "description": "We human love staying under a roof at night."
+        },
+        {
+          "id": "cp1-2",
+          "name": "Ground cloth/tarp",
+          "category": "Shelter",
+          "image": "",
+          "description": "Protect your tent."
+        },
+        {
+          "id": "cp1-3",
+          "name": "Extra stakes",
+          "category": "Shelter",
+          "image": "",
+          "description": "Just bring them all."
+        },
+        {
+          "id": "cp1-4",
+          "name": "Shade tarp/poles/rope/stakes",
+          "category": "Shelter",
+          "image": "",
+          "description": "You'll love some shade."
+        },
+        {
+          "id": "cp1-5",
+          "name": "Axe or hammer",
+          "category": "Shelter",
+          "image": "",
+          "description": "For taking selfies."
+        },
+        {
+          "id": "cp1-6",
+          "name": "Mat for tent entrance",
+          "category": "Shelter",
+          "image": "",
+          "description": "Protect your tent."
+        },
+        {
+          "id": "cp1-7",
+          "name": "Dust pan/brush",
+          "category": "Shelter",
+          "image": "",
+          "description": "For housework lovers."
+        },
+        {
+          "id": "cp2-1",
+          "name": "Sleeping bag",
+          "category": "Bedding",
+          "image": "",
+          "description": "Keep it dry to survive. Good luck!"
+        },
+        {
+          "id": "cp2-2",
+          "name": "Sheets/blankets",
+          "category": "Bedding",
+          "image": "",
+          "description": "Add some extra warmth."
+        },
+        {
+          "id": "cp2-3",
+          "name": "Pillow",
+          "category": "Bedding",
+          "image": "",
+          "description": "It works hard while you're asleep."
+        },
+        {
+          "id": "cp2-4",
+          "name": "Air mattress/sleeping pad/cot/tarp",
+          "category": "Bedding",
+          "image": "",
+          "description": "Equivalent to your bed."
+        },
+        {
+          "id": "cp2-5",
+          "name": "Air pump",
+          "category": "Bedding",
+          "image": "",
+          "description": "To avoid using mouth."
+        },
+        {
+          "id": "cp2-6",
+          "name": "Repair kit for air mattress",
+          "category": "Bedding",
+          "image": "",
+          "description": "Or just don't break your air mattress!"
+        },
+        {
+          "id": "cp2-7",
+          "name": "Utility bags for storage",
+          "category": "Bedding",
+          "image": "",
+          "description": "For our precious sleeping bag."
+        }
+      ]
     },
     "users": [
       {
         "id": "u1",
         "name": "Fluffy Fish",
-        "avatar": ""
+        "avatar": "https://firebasestorage.googleapis.com/v0/b/camel-train.appspot.com/o/dev%2Fdiamond.png?alt=media&token=8a93b8b3-cf0f-4c1b-8180-802ef9b58127"
       },
       {
         "id": "u2",
         "name": "Rainbow Chicken",
-        "avatar": ""
+        "avatar": "https://firebasestorage.googleapis.com/v0/b/camel-train.appspot.com/o/dev%2Fbroken.png?alt=media&token=f24479bb-b911-4216-a6e0-4f4d90029ed5"
       },
       {
         "id": "u3",
         "name": "Big Water Tank",
-        "avatar": ""
+        "avatar": "https://firebasestorage.googleapis.com/v0/b/camel-train.appspot.com/o/dev%2Fnerd.png?alt=media&token=840151aa-1d9a-4742-a938-d8601ebce29f"
       },
       {
         "id": "u4",
         "name": "Hyper Monkey",
-        "avatar": ""
+        "avatar": "https://firebasestorage.googleapis.com/v0/b/camel-train.appspot.com/o/dev%2Fsilver.png?alt=media&token=9de976d9-446f-4eb8-ab04-36c6916a6024"
       }
     ],
     "trips": [
       {
         "id": "trip1",
+        "active": true,
         "name": "Journey to the West",
-        "date": "",
+        "date": "19 Feb 2021",
         "members": [
           {
             "id": "u1",
             "name": "Fluffy Fish",
-            "avatar": ""
+            "avatar": "https://firebasestorage.googleapis.com/v0/b/camel-train.appspot.com/o/dev%2Fdiamond.png?alt=media&token=8a93b8b3-cf0f-4c1b-8180-802ef9b58127"
           },
           {
             "id": "u2",
             "name": "Rainbow Chicken",
-            "avatar": ""
+            "avatar": "https://firebasestorage.googleapis.com/v0/b/camel-train.appspot.com/o/dev%2Fbroken.png?alt=media&token=f24479bb-b911-4216-a6e0-4f4d90029ed5"
           },
           {
             "id": "u3",
             "name": "Big Water Tank",
-            "avatar": ""
+            "avatar": "https://firebasestorage.googleapis.com/v0/b/camel-train.appspot.com/o/dev%2Fnerd.png?alt=media&token=840151aa-1d9a-4742-a938-d8601ebce29f"
           },
           {
             "id": "u4",
             "name": "Hyper Monkey",
-            "avatar": ""
+            "avatar": "https://firebasestorage.googleapis.com/v0/b/camel-train.appspot.com/o/dev%2Fsilver.png?alt=media&token=9de976d9-446f-4eb8-ab04-36c6916a6024"
           }
         ],
         "destination": [
@@ -162,182 +163,228 @@
         ],
         "items": [
           {
-            "id": "trip1-cp1-1",
-            "name": "Tent",
-            "category": "Shelter",
-            "image": "",
-            "description": "We human love staying under a roof at night.",
-            "user": {
-              "id": "u1",
-              "name": "Fluffy Fish",
-              "avatar": ""
+            "item": {
+              "id": "trip1-cp1-1",
+              "name": "Tent",
+              "category": "Shelter",
+              "image": "",
+              "description": "We human love staying under a roof at night."
             },
-            "count": 1,
-            "status": "To Pack"
+            "status": [
+              {
+                "user": {
+                  "id": "u1",
+                  "name": "Fluffy Fish",
+                  "avatar": "https://firebasestorage.googleapis.com/v0/b/camel-train.appspot.com/o/dev%2Fdiamond.png?alt=media&token=8a93b8b3-cf0f-4c1b-8180-802ef9b58127"
+                },
+                "count": 1,
+                "todo": "todo"
+              }
+            ]
           },
           {
-            "id": "trip1-cp1-2",
-            "name": "Ground cloth/tarp",
-            "category": "Shelter",
-            "image": "",
-            "description": "Protect your tent.",
-            "user": {
-              "id": "u1",
-              "name": "Fluffy Fish",
-              "avatar": ""
+            "item": {
+              "id": "trip1-cp1-2",
+              "name": "Ground cloth/tarp",
+              "category": "Shelter",
+              "image": "",
+              "description": "Protect your tent."
             },
-            "count": 1,
-            "status": "To Pack"
+            "status": [
+              {
+                "user": {
+                  "id": "u1",
+                  "name": "Fluffy Fish",
+                  "avatar": "https://firebasestorage.googleapis.com/v0/b/camel-train.appspot.com/o/dev%2Fdiamond.png?alt=media&token=8a93b8b3-cf0f-4c1b-8180-802ef9b58127"
+                },
+                "count": 1,
+                "todo": "todo"
+              }
+            ]
           },
           {
-            "id": "trip1-cp1-3",
-            "name": "Extra stakes",
-            "category": "Shelter",
-            "image": "",
-            "description": "Just bring them all.",
-            "user": {
-              "id": "u1",
-              "name": "Fluffy Fish",
-              "avatar": ""
+            "item": {
+              "id": "trip1-cp1-3",
+              "name": "Extra stakes",
+              "category": "Shelter",
+              "image": "",
+              "description": "Just bring them all."
             },
-            "count": 10,
-            "status": "To Buy"
+            "status": [
+              {
+                "user": {
+                  "id": "u1",
+                  "name": "Fluffy Fish",
+                  "avatar": "https://firebasestorage.googleapis.com/v0/b/camel-train.appspot.com/o/dev%2Fdiamond.png?alt=media&token=8a93b8b3-cf0f-4c1b-8180-802ef9b58127"
+                },
+                "count": 10,
+                "todo": "question"
+              }
+            ]
           },
           {
-            "id": "trip1-cp1-4",
-            "name": "Shade tarp/poles/rope/stakes",
-            "category": "Shelter",
-            "image": "",
-
-            "description": "You'll love some shade."
-          },
-          {
-            "id": "trip1-cp1-5",
-            "name": "Axe or hammer",
-            "category": "Shelter",
-            "image": "",
-            "description": "For taking selfies.",
-            "user": {
-              "id": "u1",
-              "name": "Fluffy Fish",
-              "avatar": ""
+            "item": {
+              "id": "trip1-cp1-4",
+              "name": "Shade tarp/poles/rope/stakes",
+              "category": "Shelter",
+              "image": "",
+              "description": "You'll love some shade."
             },
-            "count": 1,
-            "status": "To Pack"
+            "status": []
           },
           {
-            "id": "trip1-cp1-6",
-            "name": "Mat for tent entrance",
-            "category": "Shelter",
-            "image": "",
-            "description": "Protect your tent."
-          },
-          {
-            "id": "trip1-cp1-7",
-            "name": "Dust pan/brush",
-            "category": "Shelter",
-            "image": "",
-            "description": "For housework lovers."
-          },
-          {
-            "id": "trip1-cp2-1-1",
-            "name": "Sleeping bag",
-            "category": "Bedding",
-            "image": "",
-            "description": "Keep it dry to survive. Good luck!",
-            "user": {
-              "id": "u1",
-              "name": "Fluffy Fish",
-              "avatar": ""
+            "item": {
+              "id": "trip1-cp1-5",
+              "name": "Axe or hammer",
+              "category": "Shelter",
+              "image": "",
+              "description": "For taking selfies."
             },
-            "count": 1,
-            "status": "To Pack"
+            "status": [
+              {
+                "user": {
+                  "id": "u1",
+                  "name": "Fluffy Fish",
+                  "avatar": "https://firebasestorage.googleapis.com/v0/b/camel-train.appspot.com/o/dev%2Fdiamond.png?alt=media&token=8a93b8b3-cf0f-4c1b-8180-802ef9b58127"
+                },
+                "count": 1,
+                "todo": "todo"
+              }
+            ]
           },
           {
-            "id": "trip1-cp2-1-2",
-            "name": "Sleeping bag",
-            "category": "Bedding",
-            "image": "",
-            "description": "Keep it dry to survive. Good luck!",
-            "user":  {
-              "id": "u2",
-              "name": "Rainbow Chicken",
-              "avatar": ""
+            "item": {
+              "id": "trip1-cp1-6",
+              "name": "Mat for tent entrance",
+              "category": "Shelter",
+              "image": "",
+              "description": "Protect your tent."
             },
-            "count": 1,
-            "status": "To Pack"
+            "status": []
           },
           {
-            "id": "trip1-cp2-1-3",
-            "name": "Sleeping bag",
-            "category": "Bedding",
-            "image": "",
-            "description": "Keep it dry to survive. Good luck!",
-            "user": {
-              "id": "u3",
-              "name": "Big Water Tank",
-              "avatar": ""
+            "item": {
+              "id": "trip1-cp1-7",
+              "name": "Dust pan/brush",
+              "category": "Shelter",
+              "image": "",
+              "description": "For housework lovers."
             },
-            "count": 1,
-            "status": "To Pack"
+            "status": []
           },
           {
-            "id": "trip1-cp2-1-4",
-            "name": "Sleeping bag",
-            "category": "Bedding",
-            "image": "",
-            "description": "Keep it dry to survive. Good luck!",
-            "user": {
-              "id": "u4",
-              "name": "Hyper Monkey",
-              "avatar": ""
+            "item": {
+              "id": "trip1-cp2-1-1",
+              "name": "Sleeping bag",
+              "category": "Bedding",
+              "image": "",
+              "description": "Keep it dry to survive. Good luck!"
             },
-            "count": 1,
-            "status": "To Pack"
+            "status": [
+              {
+                "user": {
+                  "id": "u1",
+                  "name": "Fluffy Fish",
+                  "avatar": "https://firebasestorage.googleapis.com/v0/b/camel-train.appspot.com/o/dev%2Fdiamond.png?alt=media&token=8a93b8b3-cf0f-4c1b-8180-802ef9b58127"
+                },
+                "count": 1,
+                "todo": "todo"
+              },
+              {
+                "user": {
+                  "id": "u2",
+                  "name": "Rainbow Chicken",
+                  "avatar": "https://firebasestorage.googleapis.com/v0/b/camel-train.appspot.com/o/dev%2Fbroken.png?alt=media&token=f24479bb-b911-4216-a6e0-4f4d90029ed5"
+                },
+                "count": 1,
+                "todo": "todo"
+              },
+              {
+                "user": {
+                  "id": "u3",
+                  "name": "Big Water Tank",
+                  "avatar": "https://firebasestorage.googleapis.com/v0/b/camel-train.appspot.com/o/dev%2Fnerd.png?alt=media&token=840151aa-1d9a-4742-a938-d8601ebce29f"
+                },
+                "count": 1,
+                "todo": "done"
+              },
+              {
+                "user": {
+                  "id": "u4",
+                  "name": "Hyper Monkey",
+                  "avatar": "https://firebasestorage.googleapis.com/v0/b/camel-train.appspot.com/o/dev%2Fsilver.png?alt=media&token=9de976d9-446f-4eb8-ab04-36c6916a6024"
+                },
+                "count": 1,
+                "todo": "question"
+              }
+            ]
           },
           {
-          "id": "trip1-cp2-2",
-          "name": "Sheets/blankets",
-          "category": "Bedding",
-          "image": "",
-          "description": "Add some extra warmth."
+            "item": {
+              "id": "trip1-cp2-2",
+              "name": "Sheets/blankets",
+              "category": "Bedding",
+              "image": "",
+              "description": "Add some extra warmth."
+            },
+            "status": []
           },
           {
-          "id": "trip1-cp2-3",
-          "name": "Pillow",
-          "category": "Bedding",
-          "image": "",
-          "description": "It works hard while you're asleep."
+            "item": {
+              "id": "trip1-cp2-3",
+              "name": "Pillow",
+              "category": "Bedding",
+              "image": "",
+              "description": "It works hard while you're asleep."
+            },
+            "status": []
           },
           {
-          "id": "trip1-cp2-4",
-          "name": "Air mattress/sleeping pad/cot/tarp",
-          "category": "Bedding",
-          "image": "",
-          "description": "Equivalent to your bed."
+            "item": {
+              "id": "trip1-cp2-4",
+              "name": "Air mattress/sleeping pad/cot/tarp",
+              "category": "Bedding",
+              "image": "",
+              "description": "Equivalent to your bed."
+            },
+            "status": []
           },
           {
-          "id": "trip1-cp2-5",
-          "name": "Air pump",
-          "category": "Bedding",
-          "image": "",
-          "description": "To avoid using mouth."
+            "item": {
+              "id": "trip1-cp2-5",
+              "name": "Air pump",
+              "category": "Bedding",
+              "image": "",
+              "description": "To avoid using mouth."
+            },
+            "status": []
           },
           {
-          "id": "trip1-cp2-6",
-          "name": "Repair kit for air mattress",
-          "category": "Bedding",
-          "image": "",
-          "description": "Or just don't break your air mattress!"
+            "item": {
+              "id": "trip1-cp2-6",
+              "name": "Repair kit for air mattress",
+              "category": "Bedding",
+              "image": "",
+              "description": "Or just don't break your air mattress!"
+            },
+            "status": []
           },
           {
-          "id": "trip1-cp2-7",
-          "name": "Utility bags for storage",
-          "category": "Bedding",
-          "image": "",
-          "description": "For our precious sleeping bag."
+            "item": {
+              "id": "trip1-cp2-7",
+              "name": "Utility bags for storage",
+              "category": "Bedding",
+              "image": "",
+              "description": "For our precious sleeping bag."
+            },
+            "status": []
           }
-        ]
+        ],
+        "user": {
+          "id": "u1",
+          "name": "Fluffy Fish",
+          "avatar": "https://firebasestorage.googleapis.com/v0/b/camel-train.appspot.com/o/dev%2Fdiamond.png?alt=media&token=8a93b8b3-cf0f-4c1b-8180-802ef9b58127"
+        }
       }
     ]
   }

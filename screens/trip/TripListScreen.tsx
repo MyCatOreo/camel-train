@@ -10,6 +10,7 @@ import * as TripActions from "../../stores/actions/trips.action";
 import { User } from "../../models/user";
 import Environment from "./../../environment";
 import { TouchableOpacity } from "react-native-gesture-handler";
+import { UserItemStatus } from "../../models/item";
 
 const MemberItem = (props: { user: User; isOwner?: boolean }) => {
   return (
@@ -25,21 +26,30 @@ const MemberItem = (props: { user: User; isOwner?: boolean }) => {
 
 const TripItem = (props: { trip: Trip }) => {
   const teamItemCount = props.trip.items.length;
-  const teamToPackCount = props.trip.items.filter(
-    (item) => item.status === "To Pack"
+  const teamToDoCount = props.trip.items.filter(
+    (item) =>
+      item.status && item.status.some((x: UserItemStatus) => x.todo === "todo")
   ).length;
-  const teamToBuyCount = props.trip.items.filter(
-    (item) => item.status === "To Buy"
+  const teamQuestionCount = props.trip.items.filter(
+    (item) =>
+      item.status &&
+      item.status.some((x: UserItemStatus) => x.todo === "question")
   ).length;
 
   const myItems = props.trip.items.filter(
-    (item) => item.user && item.user.id === "u1"
+    (item) =>
+      item.status && item.status.some((x: UserItemStatus) => x.user.id === "u1")
   ); //TODO: replaced by logged in id
   const selfItemCount = myItems.length;
-  const selfToPackCount = myItems.filter((item) => item.status === "To Pack")
-    .length;
-  const selfToBuyCount = myItems.filter((item) => item.status === "To Buy")
-    .length;
+  const selfToDoCount = myItems.filter(
+    (item) =>
+      item.status && item.status.some((x: UserItemStatus) => x.todo === "todo")
+  ).length;
+  const selfQuestionCount = myItems.filter(
+    (item) =>
+      item.status &&
+      item.status.some((x: UserItemStatus) => x.todo === "question")
+  ).length;
 
   const imageString = `https://maps.googleapis.com/maps/api/staticmap?&zoom=11&size=${400}x${250}&maptype=roadmap
     &markers=color:red%7Clabel:S%7C${props.trip.destination[0].mapLatitude},${
@@ -59,7 +69,7 @@ const TripItem = (props: { trip: Trip }) => {
           return (
             <MemberItem
               user={member}
-              key={member.id}
+              key={i}
               isOwner={member.id === props.trip.user.id}
             ></MemberItem>
           );
@@ -73,14 +83,16 @@ const TripItem = (props: { trip: Trip }) => {
         <View style={styles.row}>
           <AppText style={styles.label}>Team </AppText>
           <AppText style={styles.label}>
-            {teamItemCount - teamToPackCount - teamToBuyCount} / {teamItemCount}
+            {teamItemCount - teamToDoCount - teamQuestionCount} /{" "}
+            {teamItemCount}
           </AppText>
         </View>
 
         <View style={styles.row}>
           <AppText style={styles.label}>My Items </AppText>
           <AppText style={styles.label}>
-            {selfItemCount - selfToPackCount - selfToBuyCount} / {selfItemCount}
+            {selfItemCount - selfToDoCount - selfQuestionCount} /{" "}
+            {selfItemCount}
           </AppText>
         </View>
       </View>
@@ -121,7 +133,7 @@ const TripListScreen = (props: { navigation?: any }) => {
       <FlatList
         data={trips}
         renderItem={(trip) => <TripItem trip={trip.item as Trip}></TripItem>}
-        keyExtractor={(item) => item.id}
+        keyExtractor={(item: Trip) => item.id}
       />
     </View>
   );

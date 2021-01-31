@@ -33,3 +33,31 @@ export const ADD_TRIP = "ADD_TRIPS";
 export const addTrip = (trip: Partial<Trip>) => {
   return { type: LOAD_TRIPS, payload: { trip: trip } };
 };
+
+export const SET_ITEM_DONE = "SET_ITEM_DONE";
+export const setItemDone = (tripId: string, itemId: string, userId: string) => {
+  return {
+    type: SET_ITEM_DONE,
+    payload: { tripId: tripId, itemId: itemId, userId: userId },
+  };
+};
+
+export const SET_ITEM_TODO = "SET_ITEM_TODO";
+export const setItemTodo = (tripId: string, itemId: string, userId: string) => {
+  return {
+    type: SET_ITEM_TODO,
+    payload: { tripId: tripId, itemId: itemId, userId: userId },
+  };
+};
+
+export const SET_ITEM_QUESTION = "SET_ITEM_QUESTION";
+export const setItemQuestion = (
+  tripId: string,
+  itemId: string,
+  userId: string
+) => {
+  return {
+    type: SET_ITEM_QUESTION,
+    payload: { tripId: tripId, itemId: itemId, userId: userId },
+  };
+};
