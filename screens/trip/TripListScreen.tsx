@@ -12,6 +12,7 @@ import Environment from "./../../environment";
 import { TouchableOpacity } from "react-native-gesture-handler";
 import { UserItemStatus } from "../../models/item";
 import Avatar from "../../components/Avatar";
+import FloatActionButton from "../../components/FloatActionButton";
 
 const TripItem = (props: { trip: Trip }) => {
   const teamItemCount = props.trip.items.length;
@@ -109,19 +110,13 @@ const TripListScreen = (props: { navigation?: any }) => {
     }
   };
 
+  const handleAdd = () => {
+    console.log("hey");
+  };
+
   return (
     <View style={styles.tripListScreen}>
-      <View style={styles.floatButtonContainer}>
-        <TouchableOpacity>
-          <View style={styles.floatButton}>
-            <MaterialCommunityIcons
-              name="plus"
-              size={36}
-              color={COLOR.flatLight}
-            />
-          </View>
-        </TouchableOpacity>
-      </View>
+      <FloatActionButton iconName="plus" onButtonPress={() => handleAdd()} />
       <FlatList
         data={trips}
         renderItem={(trip) => <TripItem trip={trip.item as Trip}></TripItem>}
@@ -173,23 +168,6 @@ const styles = StyleSheet.create({
   label: {
     color: COLOR.flatLight,
     fontSize: 20,
-  },
-  floatButtonContainer: {
-    position: "absolute",
-    top: "85%",
-    left: "80%",
-    elevation: 5,
-    height: 60,
-    width: 60,
-    borderRadius: 30,
-    overflow: "hidden",
-  },
-  floatButton: {
-    height: 60,
-    width: 60,
-    backgroundColor: COLOR.boldLight,
-    alignItems: "center",
-    justifyContent: "center",
   },
 });
 
