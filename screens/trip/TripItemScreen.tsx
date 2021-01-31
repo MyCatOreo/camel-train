@@ -20,22 +20,7 @@ import { User } from "../../models/user";
 import Environment from "./../../environment";
 import { ScrollView, TouchableOpacity } from "react-native-gesture-handler";
 import { UserItem, UserItemStatus } from "../../models/item";
-
-const Avatar = (props: { user: User; todo?: string }) => {
-  return (
-    <Image
-      style={[
-        styles.avatar,
-        props.todo === "done"
-          ? styles.avatarDone
-          : props.todo === "todo"
-          ? styles.avatarToDo
-          : styles.avatarQuestion,
-      ]}
-      source={{ uri: props.user.avatar }}
-    />
-  );
-};
+import Avatar from "../../components/Avatar";
 
 const ListItem = (props: { item: UserItem }) => {
   const [status, setStatus] = useState("todo" as "question" | "todo" | "done");
@@ -148,6 +133,7 @@ const ListItem = (props: { item: UserItem }) => {
               <View key={x.user.id}>
                 <Avatar
                   user={x.user}
+                  mode="small"
                   todo={
                     selectStatus.find((status) => status.user.id === x.user.id)!
                       .todo
@@ -336,25 +322,6 @@ const styles = StyleSheet.create({
   },
   listItemDesc: {
     color: COLOR.themeDarkTint,
-  },
-  avatar: {
-    height: 36,
-    width: 36,
-    backgroundColor: COLOR.themeDarkTint,
-    borderRadius: 18,
-    marginRight: 5,
-  },
-  avatarToDo: {
-    borderWidth: 0,
-    borderColor: "grey",
-  },
-  avatarDone: {
-    borderWidth: 4,
-    borderColor: "green",
-  },
-  avatarQuestion: {
-    borderWidth: 4,
-    borderColor: "orange",
   },
 });
 

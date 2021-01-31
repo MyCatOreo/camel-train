@@ -11,18 +11,7 @@ import { User } from "../../models/user";
 import Environment from "./../../environment";
 import { TouchableOpacity } from "react-native-gesture-handler";
 import { UserItemStatus } from "../../models/item";
-
-const MemberItem = (props: { user: User; isOwner?: boolean }) => {
-  return (
-    <View style={styles.memberItem}>
-      <Image
-        style={props.isOwner ? styles.ownerAvatar : styles.memberAvatar}
-        source={{ uri: props.user.avatar }}
-      />
-      {/* <AppText>{props.user.name}</AppText> */}
-    </View>
-  );
-};
+import Avatar from "../../components/Avatar";
 
 const TripItem = (props: { trip: Trip }) => {
   const teamItemCount = props.trip.items.length;
@@ -67,11 +56,14 @@ const TripItem = (props: { trip: Trip }) => {
       <View style={[styles.row, styles.membersRow]}>
         {props.trip.members.map((member, i) => {
           return (
-            <MemberItem
-              user={member}
-              key={i}
-              isOwner={member.id === props.trip.user.id}
-            ></MemberItem>
+            <View style={styles.memberItem}>
+              <Avatar
+                user={member}
+                mode="large"
+                isAdmin={member.id === props.trip.user.id}
+              />
+              {/* TODO: get the actual admin */}
+            </View>
           );
         })}
       </View>
@@ -168,18 +160,6 @@ const styles = StyleSheet.create({
     backgroundColor: COLOR.themeDark,
     justifyContent: "space-around",
     paddingBottom: 20,
-  },
-  ownerAvatar: {
-    height: 80,
-    width: 80,
-    backgroundColor: COLOR.boldDark,
-    borderRadius: 16,
-  },
-  memberAvatar: {
-    height: 80,
-    width: 80,
-    backgroundColor: COLOR.themeDarkTint,
-    borderRadius: 16,
   },
   mapImage: {
     width: Dimensions.get("window").width,
