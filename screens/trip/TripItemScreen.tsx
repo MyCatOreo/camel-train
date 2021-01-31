@@ -1,90 +1,32 @@
-import React, { useEffect, useState } from "react";
-import {
-  View,
-  StyleSheet,
-  Dimensions,
-  FlatList,
-  Image,
-  SectionList,
-  Button,
-  Pressable,
-} from "react-native";
-import { MaterialCommunityIcons } from "@expo/vector-icons";
+import React, { useState } from "react";
+import { View, StyleSheet, SectionList } from "react-native";
 import FONT from "../../constants/fonts";
 import COLOR from "../../constants/colors";
 import AppText from "../../components/AppText";
 import { Trip } from "../../models/trip";
 import { useDispatch, useSelector } from "react-redux";
 import * as TripActions from "../../stores/actions/trips.action";
-import { User } from "../../models/user";
 import Environment from "./../../environment";
-import { ScrollView, TouchableOpacity } from "react-native-gesture-handler";
 import { UserItem, UserItemStatus } from "../../models/item";
 import Avatar from "../../components/Avatar";
+import ItemCheckbox from "../../components/ItemCheckbox";
 
 const ListItem = (props: { item: UserItem }) => {
-  const [status, setStatus] = useState("todo" as "question" | "todo" | "done");
-
   const dispatch = useDispatch();
 
-  const selectedTripId = useSelector(
-    (state: any) =>
-      state.trips.trips.find((trip: Trip) => trip.id === state.trips.selectedId)
-        .id
-  );
-  const selectedUser = "u1"; //TODO: get from selector
+  // const selectedTripId = useSelector(
+  //   (state: any) =>
+  //     state.trips.trips.find((trip: Trip) => trip.id === state.trips.selectedId)
+  //       .id
+  // );
+
   const selectStatus: UserItemStatus[] = useSelector(
     (state: any) =>
       state.trips.trips
-        .find((trip: Trip) => trip.active === true) //TODO: selected trip
+        .find((trip: Trip) => trip.id === state.trips.selectedId)
         .items.find((item: UserItem) => item.item.id === props.item.item.id)
         .status
   );
-  //TODO: avatar should get todo from selector
-
-  const onIconPressed = () => {
-    switch (status) {
-      case "todo":
-        setStatus("done");
-        dispatch(
-          TripActions.setItemDone(
-            selectedTripId,
-            props.item.item.id,
-            selectedUser
-          )
-        );
-        break;
-      case "done":
-        setStatus("question");
-        dispatch(
-          TripActions.setItemQuestion(
-            selectedTripId,
-            props.item.item.id,
-            selectedUser
-          )
-        );
-        break;
-      case "question":
-        setStatus("todo");
-        dispatch(
-          TripActions.setItemTodo(
-            selectedTripId,
-            props.item.item.id,
-            selectedUser
-          )
-        );
-        break;
-      default:
-        setStatus("todo");
-        dispatch(
-          TripActions.setItemTodo(
-            selectedTripId,
-            props.item.item.id,
-            selectedUser
-          )
-        );
-    }
-  };
 
   return (
     <View style={[styles.listItem]}>
@@ -92,38 +34,7 @@ const ListItem = (props: { item: UserItem }) => {
         <View style={styles.listItemNameContainer}>
           <AppText style={styles.listItemName}>{props.item.item.name}</AppText>
         </View>
-        <View style={styles.statusButton}>
-          <Pressable onPress={() => onIconPressed()}>
-            {(() => {
-              switch (status) {
-                case "todo":
-                  return (
-                    <MaterialCommunityIcons
-                      name="checkbox-blank-outline"
-                      size={36}
-                      color="grey"
-                    />
-                  );
-                case "question":
-                  return (
-                    <MaterialCommunityIcons
-                      name="alert-box-outline"
-                      size={36}
-                      color="orange"
-                    />
-                  );
-                case "done":
-                  return (
-                    <MaterialCommunityIcons
-                      name="check-box-outline"
-                      size={36}
-                      color="darkgreen"
-                    />
-                  );
-              }
-            })()}
-          </Pressable>
-        </View>
+        <ItemCheckbox item={props.item} />
       </View>
 
       <View style={[styles.row, { height: 44 }]}>
@@ -301,7 +212,6 @@ const styles = StyleSheet.create({
   listItemNameContainer: {
     width: "85%",
   },
-  statusButton: {},
   headerText: {
     fontSize: 20,
     color: COLOR.flatLight,

@@ -1,7 +1,5 @@
 import React, { useEffect } from "react";
 import { View, StyleSheet, Dimensions, FlatList, Image } from "react-native";
-import { MaterialCommunityIcons } from "@expo/vector-icons";
-import FONT from "../../constants/fonts";
 import COLOR from "../../constants/colors";
 import AppText from "../../components/AppText";
 import { Trip } from "../../models/trip";
@@ -9,7 +7,6 @@ import { useDispatch, useSelector } from "react-redux";
 import * as TripActions from "../../stores/actions/trips.action";
 import { User } from "../../models/user";
 import Environment from "./../../environment";
-import { TouchableOpacity } from "react-native-gesture-handler";
 import { UserItemStatus } from "../../models/item";
 import Avatar from "../../components/Avatar";
 import FloatActionButton from "../../components/FloatActionButton";
@@ -57,7 +54,7 @@ const TripItem = (props: { trip: Trip }) => {
       <View style={[styles.row, styles.membersRow]}>
         {props.trip.members.map((member, i) => {
           return (
-            <View style={styles.memberItem}>
+            <View style={styles.memberItem} key={member.id}>
               <Avatar
                 user={member}
                 mode="large"
