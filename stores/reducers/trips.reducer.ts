@@ -33,7 +33,6 @@ export const tripsReducer = (
         action.payload.userId,
         "done"
       );
-      console.log(newStateDone.trips[0].items[0].status);
       return newStateDone;
 
     case SET_ITEM_TODO:

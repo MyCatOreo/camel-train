@@ -10,7 +10,13 @@ import { UserItem } from "../models/item";
 import { Trip } from "../models/trip";
 
 const ItemCheckbox = (props: { item: UserItem }) => {
-  const [status, setStatus] = useState("todo" as "question" | "todo" | "done");
+  const selectedUserId = "u1";
+  const [status, setStatus] = useState(
+    props.item.status
+      ? props.item.status.find((status) => status.user.id === selectedUserId)
+          ?.todo
+      : ("todo" as "question" | "todo" | "done")
+  );
 
   const dispatch = useDispatch();
 
