@@ -8,6 +8,7 @@ import {
 
 const TRIPS_INITIAL_STATE = {
   trips: [] as Trip[],
+  selectedId: undefined,
 };
 
 export const tripsReducer = (
@@ -16,7 +17,13 @@ export const tripsReducer = (
 ) => {
   switch (action.type) {
     case LOAD_TRIPS:
-      return { ...state, trips: action.payload.trips };
+      return {
+        ...state,
+        trips: action.payload.trips,
+        selectedId: action.payload.trips.find(
+          (trip: Trip) => trip.active === true
+        ).id,
+      };
 
     case SET_ITEM_DONE:
       const newStateDone = updateItemStatus(

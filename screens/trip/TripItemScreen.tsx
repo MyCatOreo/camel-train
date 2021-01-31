@@ -20,9 +20,6 @@ import { User } from "../../models/user";
 import Environment from "./../../environment";
 import { ScrollView, TouchableOpacity } from "react-native-gesture-handler";
 import { UserItem, UserItemStatus } from "../../models/item";
-import { items } from "../../assets/data/items";
-import users from "../../assets/data/users";
-import VerticalDivider from "../../components/VerticalDivider";
 
 const Avatar = (props: { user: User; todo?: string }) => {
   return (
@@ -42,8 +39,14 @@ const Avatar = (props: { user: User; todo?: string }) => {
 
 const ListItem = (props: { item: UserItem }) => {
   const [status, setStatus] = useState("todo" as "question" | "todo" | "done");
+
   const dispatch = useDispatch();
-  const selectedTrip = "trip1"; //TODO: get from selector
+
+  const selectedTripId = useSelector(
+    (state: any) =>
+      state.trips.trips.find((trip: Trip) => trip.id === state.trips.selectedId)
+        .id
+  );
   const selectedUser = "u1"; //TODO: get from selector
   const selectStatus: UserItemStatus[] = useSelector(
     (state: any) =>
@@ -60,7 +63,7 @@ const ListItem = (props: { item: UserItem }) => {
         setStatus("done");
         dispatch(
           TripActions.setItemDone(
-            selectedTrip,
+            selectedTripId,
             props.item.item.id,
             selectedUser
           )
@@ -70,7 +73,7 @@ const ListItem = (props: { item: UserItem }) => {
         setStatus("question");
         dispatch(
           TripActions.setItemQuestion(
-            selectedTrip,
+            selectedTripId,
             props.item.item.id,
             selectedUser
           )
@@ -80,7 +83,7 @@ const ListItem = (props: { item: UserItem }) => {
         setStatus("todo");
         dispatch(
           TripActions.setItemTodo(
-            selectedTrip,
+            selectedTripId,
             props.item.item.id,
             selectedUser
           )
@@ -90,7 +93,7 @@ const ListItem = (props: { item: UserItem }) => {
         setStatus("todo");
         dispatch(
           TripActions.setItemTodo(
-            selectedTrip,
+            selectedTripId,
             props.item.item.id,
             selectedUser
           )
@@ -189,7 +192,7 @@ const TripItemScreen = (props: any) => {
   const trip: Trip = useSelector(
     (state: any) =>
       state.trips.trips
-        .filter((trip: Trip) => trip.active) //TODO: use selected trip instead
+        .filter((trip: Trip) => trip.id === state.trips.selectedId)
         .map((activeTrip: Trip) => {
           return {
             ...activeTrip,
